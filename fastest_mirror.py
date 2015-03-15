@@ -1,7 +1,11 @@
+__author__ = 'Lyle Scott, III'
+__email__ = 'lyle@digitalfoo.net'
+
 import sys
 import requests
 
-TIMEOUT = 4
+
+URL_TIMEOUT = 4
 
 
 def get_mirror_urls():
@@ -19,7 +23,7 @@ def time_urls(urls):
     response_times = []
     for i, mirror_url in enumerate(urls):
         try:
-            resp = requests.get(mirror_url, timeout=TIMEOUT)
+            resp = requests.get(mirror_url, timeout=URL_TIMEOUT)
         except requests.exceptions.ConnectionError:
             print 'Connection Error (skipping): {}'.format(mirror_url)
             continue
